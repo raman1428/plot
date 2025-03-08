@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Residential Layout Plans - Dewapur, Nagpur</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #1a3c6d;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .layout-info {
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .layout-details {
+            margin-bottom: 1rem;
+        }
+
+        .layout-details h3 {
+            color: #1a3c6d;
+            margin-bottom: 0.5rem;
+        }
+
+        .layout-details p {
+            margin-bottom: 0.25rem;
+        }
+
+        .layout-viewer {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .plan-container {
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .plan-container h3 {
+            color: #1a3c6d;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .plan-image {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .plan-image:hover {
+            transform: scale(1.01);
+        }
+
+        .view-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .view-btn {
+            background-color: #1a3c6d;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-btn:hover {
+            background-color: #0d2b5a;
+        }
+
+        .view-btn.active {
+            background-color: #0d2b5a;
+            font-weight: bold;
+        }
+
+        .layout-key {
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .key-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .key-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            border: 1px solid #ddd;
+        }
+
+        .info-btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .info-btn:hover {
+            background-color: #3e8e41;
+        }
+
+        @media (min-width: 768px) {
+            .layout-viewer {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .plan-container {
+                flex: 1 1 45%;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Residential Layout Plan Viewer</h1>
+    </header>
+    
+    <div class="container">
+        <div class="layout-info">
+            <div class="layout-details">
+                <h3>Property Information</h3>
+                <p><strong>Location:</strong> KH. NO.- 291 AND 292, P.H. NO.- 77, MOUZA - DEWAPUR, TAL.- HINGNA, DIST.-NAGPUR</p>
+                <p><strong>Owner:</strong> MR. BALVIR DASHRATJI PATIL & OTHERS (SHRI. BALVIR. T. PATIL)</p>
+                <p><strong>Project Type:</strong> Proposed Residential Layout</p>
+                <a href="info.html" class="info-btn"><i class="fas fa-info-circle"></i> Investment Information (हिंदी में)</a>
+            </div>
+        </div>
+
+        <div class="view-controls">
+            <button class="view-btn active" id="viewAll">View All Plans</button>
+            <button class="view-btn" id="viewDevapur">Devapur Layout</button>
+            <button class="view-btn" id="viewSukali">Sukali Beldar Layout</button>
+        </div>
+
+        <div class="layout-key">
+            <h3>Layout Legend</h3>
+            <div class="key-item">
+                <div class="key-color" style="background-color: yellow;"></div>
+                <span>Plot Boundaries</span>
+            </div>
+            <div class="key-item">
+                <div class="key-color" style="background-color: #90EE90;"></div>
+                <span>Open Space / Amenity Space</span>
+            </div>
+            <div class="key-item">
+                <div class="key-color" style="background-color: #ADD8E6;"></div>
+                <span>Road Network</span>
+            </div>
+        </div>
+
+        <div class="layout-viewer">
+            <div class="plan-container" id="devapur">
+                <h3>Proposed Residential Layout Plan - Dewapur</h3>
+                <img src="DEVAPUR.PNG" alt="Dewapur Layout Plan" class="plan-image" id="devapurImg">
+                <p style="margin-top: 0.5rem;">This comprehensive layout displays the proposed residential development in Dewapur with 122 individual plots, amenity space of 2855.03 sq.mt., and detailed plot dimensions.</p>
+            </div>
+            
+            <div class="plan-container" id="sukali">
+                <h3>Sukali Beldar Layout - K-Prat</h3>
+                <img src="SUKALI BELDAR 40 AS PER K-PRAT.PNG" alt="Sukali Beldar Layout" class="plan-image" id="sukaliImg">
+                <p style="margin-top: 0.5rem;">This plan shows the linear development layout with plot subdivisions along 9.00 mt and 12.00 mt wide roads.</p>
+            </div>
+        </div>
+
+        <div class="layout-info">
+            <div class="layout-details">
+                <h3>Layout Statistics</h3>
+                <p><strong>Total Area:</strong> 14272.93 sq.mt.</p>
+                <p><strong>Open Space:</strong> 2855.03 sq.mt. (20%)</p>
+                <p><strong>Amenity Space:</strong> 1440.60 sq.mt.</p>
+                <p><strong>Road Network:</strong> Multiple roads including 9.00, 12.00, and 15.00 mt. wide roads</p>
+                <p><strong>Number of Plots:</strong> 122</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // In a real implementation, these would load the actual images
+        document.getElementById('viewAll').addEventListener('click', function() {
+            document.getElementById('devapur').style.display = 'block';
+            document.getElementById('sukali').style.display = 'block';
+            setActiveButton(this);
+        });
+        
+        document.getElementById('viewDevapur').addEventListener('click', function() {
+            document.getElementById('devapur').style.display = 'block';
+            document.getElementById('sukali').style.display = 'none';
+            setActiveButton(this);
+        });
+        
+        document.getElementById('viewSukali').addEventListener('click', function() {
+            document.getElementById('devapur').style.display = 'none';
+            document.getElementById('sukali').style.display = 'block';
+            setActiveButton(this);
+        });
+        
+        function setActiveButton(activeBtn) {
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            activeBtn.classList.add('active');
+        }
+    </script>
+</body>
+</html>
